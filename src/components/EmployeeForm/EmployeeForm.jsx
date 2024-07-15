@@ -2,7 +2,7 @@ import "./EmployeeForm.scss"
 
 function EmployeeForm() {
     return (
-        <form id="employee">
+        <form id="employeeform">
             <h2>Create Employee</h2>
         </form>
     )
