@@ -1,0 +1,13 @@
+.labeledinput {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-top: 1rem;
+        margin-bottom: 10px;
+    }
+
+    input {
+        width: 150px;
+    }
+}
