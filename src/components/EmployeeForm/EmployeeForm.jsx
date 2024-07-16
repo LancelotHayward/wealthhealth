@@ -2,12 +2,16 @@ import "./EmployeeForm.scss"
 import { states } from "./unitedstates.js"
 
 import LabeledInput from "../LabeledInput/LabeledInput.jsx"
+import Modal from "../Modal/Modal.jsx"
 
-function saveEmployee(e) {
-    e.preventDefault()
-}
+import { useState } from 'react'
 
 function EmployeeForm() {
+    const [modalStatus, setModalStatus] = useState(false)
+    function saveEmployee(e) {
+        e.preventDefault()
+        setModalStatus(true)
+    }
     return (
         <form id="employeeform">
             <h2>Create Employee</h2>
@@ -26,6 +30,7 @@ function EmployeeForm() {
                 <LabeledInput inputID="department" type="select" options={["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]}/>
             </div>
             <button onClick={saveEmployee}>Save</button>
+            <Modal text="Employee Created!" modalStatus={modalStatus} setModalStatus={setModalStatus}/>
         </form>
     )
 }
