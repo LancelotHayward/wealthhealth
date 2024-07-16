@@ -1,8 +1,8 @@
-import "./EmployeeList.scss"
-
 import { useState } from 'react'
 
 import ColumnHeader from "../ColumnHeader/ColumnHeader.jsx"
+
+import "./EmployeeList.scss"
 
 function EmployeeList() {
     const [entriesCount, setEntriesCount] = useState(10)

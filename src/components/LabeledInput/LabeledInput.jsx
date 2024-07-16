@@ -1,6 +1,6 @@
-import "./LabeledInput.scss"
-
 import { useState } from 'react'
+
+import "./LabeledInput.scss"
 
 function LabeledInput({inputID, text, type="text", options=[]}) {
     const [input, setInput] = useState("")

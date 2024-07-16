@@ -1,10 +1,11 @@
-import "./EmployeeForm.scss"
-import { states } from "./unitedstates.js"
+import { useState } from 'react'
 
 import LabeledInput from "../LabeledInput/LabeledInput.jsx"
 import Modal from "../Modal/Modal.jsx"
 
-import { useState } from 'react'
+import { states } from "../../common/unitedstates.js"
+import "./EmployeeForm.scss"
+
 
 function EmployeeForm() {
     const [modalStatus, setModalStatus] = useState(false)
@@ -24,7 +25,7 @@ function EmployeeForm() {
                     <legend>Address</legend>
                     <LabeledInput inputID="street"/>
                     <LabeledInput inputID="city"/>
-                    <LabeledInput inputID="state" type="select" options={states}/>
+                    <LabeledInput inputID="state" type="select" options={states.map(state => state.name)}/>
                     <LabeledInput inputID="zipcode" text="Zip Code" type="number"/>
                 </fieldset>
                 <LabeledInput inputID="department" type="select" options={["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]}/>
