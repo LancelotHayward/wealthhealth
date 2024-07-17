@@ -1,24 +1,29 @@
-import { useState } from 'react'
-
 import "./LabeledInput.scss"
 
-function LabeledInput({inputID, text, type="text", options=[]}) {
-    const [input, setInput] = useState("")
-    // TODO : remove console log
-    if (input) {
-        console.log(input)
-    }
+function LabeledInput({inputID, text, type="text", options=[], state, setState}) {
+    // const [input, setInput] = useState("")
+
+    // const dispatch = useDispatch()
+    // let saveState  = useSelector((state) => state.save)
+    // const [hasSaved, setHasSaved] = useState(false)
+    
+    // if (input && !hasSaved) {// && !saveState[inputID])
+    //     setHasSaved(true)
+    //     dispatch(save({inputID, input}))
+    // }
+
+    //Handle element creation
     if (!text) {
         text = inputID.charAt(0).toUpperCase() + inputID.slice(1)
     }
     function createInputOrSelect(type, inputID, options) {
         if (type !== "select") {
             return (
-                <input type={type} id={inputID} onChange={e => setInput(e.target.value)}/>
+                <input type={type} id={inputID} onChange={e => setState(e.target.value)}/>
             )
         }
         return (
-            <select name={inputID} id={inputID} onChange={e => setInput(e.target.value)}>
+            <select name={inputID} id={inputID} onChange={e => setState(e.target.value)}>
                 {options.map(option => (<option key={option}>{option}</option>))}
             </select>
         )
