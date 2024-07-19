@@ -4,18 +4,7 @@ import formSlice from "./formSlice.js"
 // import listSlice from "./listSlice.js"
 
 let state = {
-    list: [],
-    save: {
-        firstname: "",
-        lastname: "",
-        birthdate: "",
-        startdate: "",
-        street: "",
-        city: "",
-        state: "",
-        zipcode: "",
-        department: ""
-    }
+    list: []
 }
 
 export const store = configureStore({

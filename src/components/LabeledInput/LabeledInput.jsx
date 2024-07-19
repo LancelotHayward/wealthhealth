@@ -22,6 +22,7 @@ function LabeledInput({inputID, text, type="text", options=[], state, setState})
                 <input type={type} id={inputID} onChange={e => setState(e.target.value)}/>
             )
         }
+        setState(options[0])
         return (
             <select name={inputID} id={inputID} onChange={e => setState(e.target.value)}>
                 {options.map(option => (<option key={option}>{option}</option>))}

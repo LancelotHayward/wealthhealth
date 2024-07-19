@@ -23,7 +23,7 @@ function EmployeeForm() {
     const [unitedstate, setunitedstate] = useState("")
 
     const dispatch = useDispatch()
-    const saveState  = useSelector((state) => state.save)
+    const list  = useSelector((state) => state.list)
     function saveEmployee(e) {
         e.preventDefault()
         const data = {
@@ -37,9 +37,9 @@ function EmployeeForm() {
             zipcode,
             department
         }
-        console.log(data)
         dispatch(save({data}))
         setModalStatus(true)
+        console.log(list)
     }
     return (
         <form id="employeeform">
