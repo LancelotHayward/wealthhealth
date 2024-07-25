@@ -3,7 +3,8 @@ import "./Header.scss"
 function Header() {
     return (
         <header id="header">
-            <h1>HRnet</h1>
+            <img src="logo.png" alt="Wealth Health"/>
+            <h1>Wealth Health</h1>
         </header>
     )
 }

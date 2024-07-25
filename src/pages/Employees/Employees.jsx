@@ -7,7 +7,7 @@ import "./Employees.scss"
 
 function Employees() {
     useEffect(() => {
-        document.title = "HRnet - Current Employees"
+        document.title = "WealthHealth - Current Employees"
     })
     return (
         <main id="employees">

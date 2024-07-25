@@ -2,6 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px;
+
+    h2 {
+        margin: 0;
+    }
 
     &>div {
         // TODO : Remove temp width
@@ -10,9 +15,20 @@
 
     fieldset {
         margin-top: 10px;
+        border-color: #8BC34A;
     }
 
     button {
         margin-top: 16px;
+        background-color: #8BC34A;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 16px;
+
+        &:not(:active) {
+            box-shadow: 0 5px 0 #56792e;
+            transform: translateY(-5px);
+        }
     }
 }

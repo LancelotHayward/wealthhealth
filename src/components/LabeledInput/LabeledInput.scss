@@ -9,5 +9,10 @@
 
     input {
         width: 150px;
+
+        &:focus {
+            border-color: #8BC34A;
+            outline: none;
+        }
     }
 }

@@ -9,6 +9,7 @@ import { store } from "./common/store.js"
 import Header from "./components/Header/Header.jsx"
 import Home from "./pages/Home/Home.jsx"
 import Employees from "./pages/Employees/Employees.jsx"
+import Footer from "./components/Footer/Footer.jsx"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <Route path="/employees" element={<Employees />}/>
       </Routes>
     </Router>
+    <Footer/>
   </Provider>
 );
 
