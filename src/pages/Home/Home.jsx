@@ -1,4 +1,4 @@
-// import { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from "react-router-dom"
 
 import EmployeeForm from "../../components/EmployeeForm/EmployeeForm.jsx"
@@ -6,9 +6,9 @@ import EmployeeForm from "../../components/EmployeeForm/EmployeeForm.jsx"
 import "./Home.scss"
 
 function Home() {
-    // useEffect(() => {
-    //     document.title = "HRnet"
-    // })
+    useEffect(() => {
+        document.title = "Wealth Health"
+    })
     return (
         <main id="home">
             <Link to="/employees">View Current Employees</Link>

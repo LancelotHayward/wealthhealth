@@ -8,9 +8,9 @@ let state = {
 }
 
 export const store = configureStore({
-    preloadedState: state,
+    // preloadedState: state,
     reducer: combineReducers({
-        save: formSlice,
+        list: formSlice,
         // list: listSlice
     }),
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()

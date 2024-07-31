@@ -37,18 +37,20 @@ function EmployeeForm() {
             zipcode,
             department
         }
-        dispatch(save({data}))
+        dispatch(save(data))
         setModalStatus(true)
-        console.log(list)
     }
     return (
         <form id="employeeform">
             <h2>Create Employee</h2>
             <div>
-                <LabeledInput inputID="firstname" text="First Name" state={firstname} setState={setfirstname}/>
-                <LabeledInput inputID="lastname" text="Last Name" state={lastname} setState={setlastname}/>
-                <LabeledInput inputID="birthdate" text="Date of Birth" type="date" state={birthdate} setState={setbirthdate}/>
-                <LabeledInput inputID="startdate" text="Start Date" type="date" state={startdate} setState={setstartdate}/>
+                <div>
+                    <LabeledInput inputID="firstname" text="First Name" state={firstname} setState={setfirstname}/>
+                    <LabeledInput inputID="lastname" text="Last Name" state={lastname} setState={setlastname}/>
+                    <LabeledInput inputID="birthdate" text="Date of Birth" type="date" state={birthdate} setState={setbirthdate}/>
+                    <LabeledInput inputID="startdate" text="Start Date" type="date" state={startdate} setState={setstartdate}/>
+                    <LabeledInput inputID="department" type="select" options={["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]} state={department} setState={setdepartment}/>
+                </div>
                 <fieldset>
                     <legend>Address</legend>
                     <LabeledInput inputID="street" state={street} setState={setstreet}/>
@@ -56,7 +58,6 @@ function EmployeeForm() {
                     <LabeledInput inputID="state" type="select" options={states.map(state => state.name)} state={unitedstate} setState={setunitedstate}/>
                     <LabeledInput inputID="zipcode" text="Zip Code" type="number" state={zipcode} setState={setzipcode}/>
                 </fieldset>
-                <LabeledInput inputID="department" type="select" options={["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]} state={department} setState={setdepartment}/>
             </div>
             <button onClick={saveEmployee}>Save</button>
             <Modal text="Employee Created!" modalStatus={modalStatus} setModalStatus={setModalStatus}/>
