@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 
 import { save } from "../../common/formSlice.js"
 import LabeledInput from "../LabeledInput/LabeledInput.jsx"
@@ -23,19 +23,18 @@ function EmployeeForm() {
     const [errorMessage, setErrorMessage] = useState("")
     const modal = useRef(null)
     const dispatch = useDispatch()
-    // const list  = useSelector((state) => state.list)
     function saveEmployee(e) {
         e.preventDefault()
         const data = {
             firstname,
             lastname,
-            birthdate,
             startdate,
+            department,
+            birthdate,
             street,
             city,
             state: unitedstate,
-            zipcode,
-            department
+            zipcode
         }
         let error = false
         Object.keys(data).map(key => data[key]).forEach(field => {
@@ -45,9 +44,9 @@ function EmployeeForm() {
             }
         })
         if (!error) {
-            dispatch(save(data))
             modal.current.showModal()
             setErrorMessage("")
+            dispatch(save(data))
         }
     }
     return (

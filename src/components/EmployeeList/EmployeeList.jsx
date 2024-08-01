@@ -1,12 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSelector } from "react-redux"
 
 import ColumnHeader from "../ColumnHeader/ColumnHeader.jsx"
 
 import "./EmployeeList.scss"
 
 function EmployeeList() {
+    // useEffect(() => {
+    //     let tableData
+    // })
     const [entriesCount, setEntriesCount] = useState(10)
     const [search, setSearch] = useState("")
+    // const [data, setData] = useState(tableData)
+    const list  = useSelector((state) => state.list)
+    // if (data.length === 0) {
+    //     setData([["No data available in table"]])
+    //     const tableData = list.map(employee => Object.keys(employee).map(key => employee[key]))
+    //     console.log(tableData)
+    //     if (tableData) {  
+    //         setData(tableData)
+    //     }
+    // }
+    const data = list.map(employee => Object.keys(employee).map(key => employee[key]))
+    if (data.length === 0) {
+        data.push(["No data available in table"])
+    }
     const entriesCountElement = (
         <select id="entriesCount" onChange={e => setEntriesCount(e.target.value)}>
             <option>10</option>
@@ -41,9 +59,11 @@ function EmployeeList() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td colspan="9">No data available in table</td>
-                    </tr>
+                    {data.map(line => {
+                        return (<tr key={line[0]}>{line.map(field => {
+                            return (<td key={field}>{field}</td>)
+                        })}</tr>)
+                    })}
                 </tbody>
             </table>
         </div>

@@ -7,11 +7,10 @@ export const saveInput = createAction('SAVE_INPUT')
 
 const formSlice = createSlice({
     name: "save",
-    initialState:[],
+    initialState: [],
     reducers: {
         save: (state, action) => {
             state.push(action.payload)
-            // console.log(state)
         }
     }
 })
