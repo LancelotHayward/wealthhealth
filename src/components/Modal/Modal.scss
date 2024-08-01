@@ -1,3 +1,23 @@
 .modal {
     border-color: #8BC34A;
+    padding: 50px;
+    position: relative;
+    border-radius: 5px;
+    font-size: 20px;
+
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &::after {
+        content: "X";
+        position: absolute;
+        right: 5px;
+        top: 0;
+    }
+
+    &:hover::after {
+        color: grey;
+    }
 }

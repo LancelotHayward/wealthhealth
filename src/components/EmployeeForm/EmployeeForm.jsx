@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 
 import { save } from "../../common/formSlice.js"
@@ -10,7 +10,6 @@ import "./EmployeeForm.scss"
 
 
 function EmployeeForm() {
-    const [modalStatus, setModalStatus] = useState(false)
     //Input States
     const [firstname, setfirstname] = useState("")
     const [lastname, setlastname] = useState("")
@@ -21,9 +20,10 @@ function EmployeeForm() {
     const [zipcode, setzipcode] = useState("")
     const [department, setdepartment] = useState("")
     const [unitedstate, setunitedstate] = useState("")
-
+    const [errorMessage, setErrorMessage] = useState("")
+    const modal = useRef(null)
     const dispatch = useDispatch()
-    const list  = useSelector((state) => state.list)
+    // const list  = useSelector((state) => state.list)
     function saveEmployee(e) {
         e.preventDefault()
         const data = {
@@ -37,8 +37,18 @@ function EmployeeForm() {
             zipcode,
             department
         }
-        dispatch(save(data))
-        setModalStatus(true)
+        let error = false
+        Object.keys(data).map(key => data[key]).forEach(field => {
+            if (!field) {
+                setErrorMessage("Missing field")
+                error = true
+            }
+        })
+        if (!error) {
+            dispatch(save(data))
+            modal.current.showModal()
+            setErrorMessage("")
+        }
     }
     return (
         <form id="employeeform">
@@ -59,8 +69,9 @@ function EmployeeForm() {
                     <LabeledInput inputID="zipcode" text="Zip Code" type="number" state={zipcode} setState={setzipcode}/>
                 </fieldset>
             </div>
+            <div id="error">{errorMessage}</div>
             <button onClick={saveEmployee}>Save</button>
-            <Modal text="Employee Created!" modalStatus={modalStatus} setModalStatus={setModalStatus}/>
+            <Modal text="Employee Created!" reference={modal}/>
         </form>
     )
 }
