@@ -1,7 +1,6 @@
 import "./Modal.scss"
 
 function Modal({text, reference}) {
-    // if (!modalStatus) return
     return (
         <dialog ref={reference} onClick={e => reference.current.close()} className="modal">
             {text}

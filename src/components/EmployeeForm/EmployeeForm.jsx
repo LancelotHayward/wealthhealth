@@ -7,6 +7,7 @@ import Modal from "../Modal/Modal.jsx"
 
 import { states } from "../../common/unitedstates.js"
 import "./EmployeeForm.scss"
+import { fireEvent } from '@testing-library/react'
 
 
 function EmployeeForm() {
@@ -25,28 +26,53 @@ function EmployeeForm() {
     const dispatch = useDispatch()
     function saveEmployee(e) {
         e.preventDefault()
-        const data = {
-            firstname,
-            lastname,
-            startdate,
-            department,
-            birthdate,
-            street,
-            city,
-            state: unitedstate,
-            zipcode
-        }
         let error = false
-        Object.keys(data).map(key => data[key]).forEach(field => {
-            if (!field) {
-                setErrorMessage("Missing field")
-                error = true
-            }
-        })
-        if (!error) {
+        if (!firstname) {
+            error = true
+            setfirstname(false)
+        }
+        if (!lastname) {
+            error = true
+            setlastname(false)
+        }
+        if (!birthdate) {
+            error = true
+            setbirthdate(false)
+        }
+        if (!startdate) {
+            error = true
+            setstartdate(false)
+        }
+        if (!street) {
+            error = true
+            setstreet(false)
+        }
+        if (!city) {
+            error = true
+            setcity(false)
+        }
+        if (!zipcode) {
+            error = true
+            setzipcode(false)
+        }
+        
+        if (!error) { 
             modal.current.showModal()
             setErrorMessage("")
-            dispatch(save(data))
+            dispatch(save({
+                firstname,
+                lastname,
+                startdate,
+                department,
+                birthdate,
+                street,
+                city,
+                state: unitedstate,
+                zipcode
+            }))
+        }
+        else {
+            setErrorMessage("Missing field(s)!")
         }
     }
     return (
