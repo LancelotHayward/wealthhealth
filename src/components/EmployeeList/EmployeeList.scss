@@ -7,7 +7,20 @@
         justify-content: space-between;
     }
 
-    thead {
-        user-select: none;
+    table {
+        border-collapse: separate;
+        border-spacing: 10px 5px;
+
+        thead {
+            user-select: none;
+
+            th {
+                border-bottom: 1px solid #8BC34A;
+            }
+        }
+
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
 }

@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux"
 
 import { save } from "../../common/formSlice.js"
 import LabeledInput from "../LabeledInput/LabeledInput.jsx"
-import Modal from "../Modal/Modal.jsx"
+import { Modal } from "modal-lancelot-openclassrooms"
+import "../../components/Modal/Modal.scss"
 
 import { states } from "../../common/unitedstates.js"
 import "./EmployeeForm.scss"
-import { fireEvent } from '@testing-library/react'
 
 
 function EmployeeForm() {
